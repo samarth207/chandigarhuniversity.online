@@ -1,0 +1,30 @@
+/* Font Awesome Free 6.2.0 */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url('../misc/62a589_serve-font.php') format("woff2"), url('../misc/c03810_serve-font.php') format("truetype");}
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('../misc/219769_serve-font.php') format("woff2"), url('../misc/69089f_serve-font.php') format("truetype");}
+.fas,
+.fa-solid {
+  font-weight: 900; }.fab,
+.fa-brands {
+  font-weight: 400; }.fa-facebook-f:before {
+  content: "\f39e"; }.fa-linkedin:before {
+  content: "\f08c"; }.fa-instagram:before {
+  content: "\f16d"; }.fa-whatsapp:before {
+  content: "\f232"; }.fa-youtube:before {
+  content: "\f167"; }.fa-twitter:before {
+  content: "\f099"; }.fa{font-family:var(--fa-style-family,"Font Awesome 6 Free");font-weight:var(--fa-style,900)}.fa,.fa-brands,.fa-classic,.fa-regular,.fa-sharp,.fa-solid,.fab,.far,.fas{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:var(--fa-display,inline-block);font-style:normal;font-variant:normal;line-height:1;text-rendering:auto}.fa-classic,.fa-regular,.fa-solid,.far,.fas{font-family:"Font Awesome 6 Free"}.fa-brands,.fab{font-family:"Font Awesome 6 Brands"}.fa-compass:before{content:"\f14e"}.fa-phone:before{content:"\f095"}.fa-bars-staggered:before,.fa-reorder:before,.fa-stream:before{content:"\f550"}.fa-angle-up:before{content:"\f106"}.fa-up-right-from-square:before{content:"\f35d"}.fa-graduation-cap:before,.fa-mortar-board:before{content:"\f19d"}
+
+/* Blaze Slider */
+.blaze-slider{--slides-to-show:1;--slide-gap:20px;direction:ltr}.blaze-container{position:relative}.blaze-track-container{overflow:hidden}.blaze-track{will-change:transform;touch-action:pan-y;display:flex;gap:var(--slide-gap);--slide-width:calc(
+    (100% - (var(--slides-to-show) - 1) * var(--slide-gap)) /
+      var(--slides-to-show)
+  );box-sizing:border-box}.blaze-track>*{box-sizing:border-box;width:var(--slide-width);flex-shrink:0}

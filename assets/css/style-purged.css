@@ -1,0 +1,629 @@
+body {
+    font-family: 'Gotham';
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    transition: 0.5s;
+}
+
+.btn {
+    height: 48px;
+    padding: 0;
+    min-width: 130px;
+    line-height: 45px;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: #E31E24;
+    border-color: #E31E24;
+}
+
+.btn-lg {
+    height: 63px;
+    line-height: 61px;
+    font-size: 18px;
+    padding: 0 30px
+}
+
+.signUp-form {
+    width: 350px;
+}
+
+.signUp-form p {
+    text-align: center;
+    font-size: 20px;
+    line-height: 24px;
+    color: #E31E24 !important;
+    font-weight: 500;
+}
+
+.signUp-form .disclaimer,
+.signUp-form .small-text {
+    font-size: 9px;
+    line-height: 12px;
+    color: #666;
+}
+
+input[type=text],
+input[type=email],
+input[type=number],
+input[type=password],
+select {
+    font-size: 14px !important;
+    height: 44px;
+    padding: 0 15px;
+}
+
+select {
+    padding-left: 15px !important;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .nav-brand {
+        margin-bottom: 10px;
+    }
+
+    /* .carousel{ height: 300px !important;} */
+    .hero-banner {
+        height: auto
+    }
+
+    .banner-overlay {
+        position: static !important;
+    }
+
+    .signUp-form {
+        margin: auto !important;
+        width: 100%;
+    }
+
+    .helpline {
+        position: static;
+        width: 210px;
+        margin: 15px auto;
+    }
+
+    .banner-content h2 {
+        font-size: 36px;
+        line-height: 46px;
+    }
+
+    .slider-img {
+        background-position: 30%;
+    }
+
+    .banner-content {
+        width: 100%;
+        text-align: center
+    }
+
+    .btn-lg {
+        height: 55px;
+        line-height: 53px;
+        font-size: 16px
+    }
+
+    .btn {
+        height: 43px;
+        line-height: 40px;
+    }
+
+    .banner-content p {
+        margin: 15px 0 !important
+    }
+
+    .carousel-indicators {
+        margin-bottom: 0
+    }
+
+    .banner-overlay {
+        padding-top: 30px !important
+    }
+
+    .main-heading h2 {
+        font-size: 32px;
+    }
+
+    .nt-icons {
+        width: 110px;
+        height: 110px;
+        margin: 10px !important
+    }
+
+    .nt-icons img {
+        width: 70%;
+    }
+
+    .news-item {
+        padding: 0 10px 30px 10px;
+    }
+
+    .ft-logo {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .ft-social div.d-flex {
+        width: 100%;
+        text-align: center;
+        display: block !important;
+    }
+
+    .ft-social .col-md-6.text-end {
+        text-align: center !important;
+        padding-top: 10px
+    }
+
+    .ft-data {
+        display: block !important;
+        text-align: center
+    }
+
+    .ft-data img {
+        position: static
+    }
+
+    .ft-add {
+        padding-left: 0;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 15px;
+        margin-top: 10px;
+        text-align: center;
+        height: 140px;
+    }
+
+    .top-numbers {
+        text-align: center
+    }
+
+    .top-numbers h6 {
+        margin-bottom: 15px
+    }
+
+    .news-card .card-body {
+        height: 310px;
+    }
+
+    .adv-card span {
+        height: 200px;
+        width: 200px;
+    }
+
+    .news-card .card-body {
+        height: 240px;
+    }
+
+    header.is-fixed {
+        top: -90px;
+    }
+
+    .recognization-logos button.slick-prev {
+        left: -40px;
+    }
+
+    .recognization-logos button.slick-next {
+        right: -40px;
+    }
+
+   
+}
+
+@media only screen and (max-width: 575px) {
+    .cu-lgo img {
+        width: 160px;
+    }
+
+    .naac-logo img {
+        width: 85px;
+    }
+
+    .naac-logo.mx-3 {
+        margin-right: 0 !important;
+        margin-left: 10px !important
+    }
+
+    .banner-content h2 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .banner-content p {
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .signUp-form .col-6 {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .main-heading h2 {
+        font-size: 26px;
+        line-height: 30px;
+    }
+
+    .main-heading p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .news-card .card-body {
+        height: 260px;
+    }
+
+    footer .col-6 {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .ft-data {
+        margin-top: 15px;
+    }
+
+    .p-80 {
+        padding: 40px 0
+    }
+
+    header.is-fixed {
+        top: -70px;
+    }
+
+    .recognization-logos button.slick-prev {
+        left: -30px;
+    }
+
+    .recognization-logos button.slick-next {
+        right: -30px;
+    }
+
+    
+    
+}
+
+
+
+
+.course-list-slider button.slick-arrow.slick-next::before,
+.industry-slider button.slick-arrow.slick-next::before,
+.partner-slider button.slick-arrow.slick-next::before,
+.recognization-logos button.slick-arrow.slick-next::before {
+    content: "\f105";
+    font-family: "Font Awesome 6 Free";
+}
+
+.course-list-slider button.slick-arrow.slick-prev::before,
+.industry-slider button.slick-arrow.slick-prev::before,
+.partner-slider button.slick-arrow.slick-prev::before,
+.recognization-logos button.slick-arrow.slick-prev::before {
+    content: "\f104";
+    font-family: "Font Awesome 6 Free";
+}
+
+.recognization-logos button.slick-arrow.slick-next::before,
+.recognization-logos button.slick-arrow.slick-prev::before {
+    color: #111;
+}
+
+.recognization-logos button.slick-arrow:hover {
+    background: #ddd;
+}
+
+
+@media (min-width: 1200px) {
+    .signUp-form {
+        width: 550px;
+        top: 30px;
+    }
+
+    .inner-page-banner {
+        height: 550px;
+    }
+
+    .register-form .col-md-12 {
+        width: 50%;
+    }
+
+    .recognization-logos button.slick-prev {
+        left: -40px;
+    }
+
+    .recognization-logos button.slick-next {
+        right: -40px;
+    }
+
+   
+    
+}
+
+@media (max-width: 767px) {
+    .banner-overlay {
+        position: relative !important;
+    }
+}
+
+.signUp-form {
+    position: relative;
+    z-index: 5;
+}
+
+#btnSignIn.form-control:focus {
+    background-color: #86b7fe;
+}
+
+#divEmailverify span {
+    font-size: 10px;
+    font-weight: normal;
+    color: #666;
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+}
+
+#btnResendOTP {
+    color: var(--bs-primary);
+    display: block;
+    font-size: 13px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    background: transparent;
+    border-radius: 6px;
+    border: 1px solid var(--bs-primary);
+    transition: all .3s ease-in-out;
+}
+
+#btnResendOTP:hover {
+    background: var(--bs-primary);
+    color: var(--bs-white);
+}
+
+img[id*="imgLoading"] {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    width: 15px;
+    display: none;
+}
+
+formField {
+    position: relative;
+}
+
+.register-form span[id*="rfv"],
+#span_dob,
+.mktoErrorMsg {
+    font-size: 9.5px;
+    color: #e31e24;
+    position: absolute;
+    bottom: -13px;
+    left: 0px;
+}
+
+ul[class*="ui-front"] {
+    overflow-y: scroll;
+    max-height: 200px;
+    font-size: 12px;
+}
+
+#p_Error {
+    text-align: center;
+    color: #e31e24;
+    display: none;
+    padding: 8px;
+    margin-bottom: 0;
+}
+
+#div_regform {
+    display: block;
+}
+
+#div_loginform {
+    display: none;
+}
+
+.register-form .col-md-12 {
+    position: relative
+}
+
+.mb-3.col-md-12.col-6.position-relative span[id*="rfv"] {
+    padding-right: 15px;
+}
+
+/************************* SELECT2 CUSTOM CSS *************************/
+.select2-container {
+    width: 100% !important;
+}
+
+.select2-container .select2-selection--single {
+    height: 44px;
+    font-size: 14px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 40px;
+    padding-left: 15px;
+}
+
+.select2-container--default .select2-selection--single {
+    border: 1px solid #ced4da;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 40px;
+}
+
+.select2-results__option {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+
+input[type=tel] {
+    font-size: 14px !important;
+    height: 44px;
+}
+
+.intl-tel-input {
+    width: 100%;
+    position: relative
+}
+
+.country-list {
+    font-size: 13px
+}
+
+.intl-tel-input.separate-dial-code .selected-flag {
+    background: #fff
+}
+
+.selected-dial-code {
+    font-size: 13px;
+}
+
+.certified-logos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: center;
+    gap: 15px;
+}
+
+.certified-logos .logos-item .nt-icons {
+    margin: 0 !important;
+}
+
+.certified-logos .logos-item {}
+
+
+.stuFes {
+    margin-top: 20px;
+}
+
+.stuFes a {
+    display: inline-block;
+    background: #ced4da;
+    color: #111;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+}
+
+.signUp-form .btn {
+    color: #fff !important;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #666 !important;
+    opacity: 1;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #666 !important;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #666 !important;
+}
+
+.select2-selection__rendered {
+    color: #666 !important;
+}
+
+@media(max-width:1199px) {
+    .country-list {
+        width: 303px !important;
+    }
+
+    .recognization-logos button.slick-prev {
+        left: -40px;
+    }
+
+    .recognization-logos button.slick-next {
+        right: -40px;
+    }
+
+
+    
+}
+
+@media(max-width:991px) {
+    .footer-ft-data {
+        align-items: flex-start;
+    }
+
+    .footer-ft-data img {
+        top: auto;
+    }
+
+    .recognization-logos button.slick-prev {
+        left: -40px;
+    }
+
+    .recognization-logos button.slick-next {
+        right: -40px;
+    }
+    .inner-page-banner.bg-overlay .inner-page-banner__content{bottom:0;}
+    .header-upper{justify-content: end;}
+    .side-call {margin-right:0;}
+
+
+}
+
+@media(max-width:767px){
+    .recognization-logos .slick-arrow{width: 30px;
+        height: 30px;}
+    .recognization-logos button.slick-prev {
+        left: -30px;
+    }
+
+    .recognization-logos button.slick-next {
+        right: -30px;
+    }
+    .recognization-logos{max-width: 85%;  margin: 0 auto;}
+    .recognization-logos button.slick-arrow.slick-next::before, .recognization-logos button.slick-arrow.slick-prev::before{font-size:16px;}
+    .side-call {margin-right:15px;}
+}
+
+.animate-text {
+    background-image: linear-gradient(-225deg, #231557 0%, #44107a 29%, #cf1212 67%, #cf1212 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.iti-flag {
+    background-image: url("../../img/flags.webp");
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .iti-flag {
+        background-image: url("../../img/flags@2x.webp");
+    }
+}

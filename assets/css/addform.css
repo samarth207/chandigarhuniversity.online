@@ -1,0 +1,292 @@
+.formmainblock
+{
+	width:100%;
+	min-height:500px;
+	margin-top:50px;
+	margin-bottom:50px;
+	padding-bottom:30px;
+	background-color:#F0F0F0;
+	float:left;
+}
+	.signUp-form
+	{
+		width:100% !important;
+	}
+		/*
+		@media (min-width: 1200px)
+        {
+			.inner-page-banner__content
+			{
+				bottom:150px !important;
+			}
+            .inner-page-banner
+            {
+                margin-top: 100px;
+                height:600px !important;
+            }   
+            .signUp-form
+            {
+                width: 550px;
+                top: 60px;
+            }
+            .register-form .col-md-12
+            {
+                width: 50%;
+            }
+        }
+        
+		@media only screen and (min-width: 992px) and (max-width: 1199px)
+        {
+			.inner-page-banner__content
+			{
+				bottom:150px !important;
+			}
+            .inner-page-banner
+            {
+                margin-top: 150px;
+                height:650px !important;
+            }   
+			.signUp-form
+            {
+                width: 500px;
+                top: 60px;
+            }
+			.in-banner-content
+			{
+				width:45%;
+			}
+			.bg-overlay .inner-page-banner__content h1 
+			{
+				font-size:38px;
+				line-height:50px;
+			}
+            .register-form .col-md-12
+            {
+                width: 50%;
+            }
+        }  
+
+        @media only screen and (min-width: 761px) and (max-width: 991px)
+        {
+            select option {
+              width: 300px;
+            }
+            .inner-page-banner
+            {
+                margin-top: 200px;
+                height:830px;
+            }   
+            .signUp-form
+            {
+                top: 20px;
+				width:100% !important;
+            }
+			.inner-page-banner__content
+			{
+				bottom:30px !important;
+			}
+            .register-form .col-md-12
+            {
+                width: 50%;
+            }
+        }
+		@media only screen and (min-width: 575px) and (max-width: 760px)
+        {
+            select option {
+              width: 300px;
+            }
+            .inner-page-banner
+            {
+                margin-top: 95px;
+                height:830px;
+            }   
+            .signUp-form
+            {
+                top: 20px;
+				width:100% !important;
+            }
+			.inner-page-banner__content
+			{
+				bottom:30px !important;
+			}
+            .register-form .col-md-12
+            {
+                width: 50%;
+            }
+        }
+		
+        
+        @media (max-width: 574px)
+        {*/
+            .form-select
+            {
+                font-size:14px;
+                width:100% !important;
+				border: 1px solid rgba(0, 0, 0, 0.15);
+				border-radius: 0.25rem;
+            }
+			.signUp-form h5
+			{
+				margin-top:10px;
+				margin-bottom:5px;
+			}
+
+            .inner-page-banner__content
+			{
+				bottom:30px !important;
+			}
+            .inner-page-banner
+            {
+                margin-top: 90px;
+                height:1000px;
+            }   
+            .signUp-form
+            {
+                top: 20px;
+            }
+            .register-form .col-md-12
+            {
+                width: 50%;
+            }
+			.iti--allow-dropdown
+			{
+				width:100%;
+			}
+        
+		/* } */
+
+
+
+
+	.inner-page-banner__content
+	{
+		z-index:1;
+	}
+    .signUp-form
+    {
+        position: relative;
+        z-index: 5;
+    }
+        .signUp-form p
+        {
+            text-align: center;
+            font-size: 20px;
+            line-height: 24px;
+            color: #E31E24 !important;
+            font-weight: 500;
+        }
+        .btn
+        {
+            height: 48px;
+            padding: 0;
+            min-width: 130px;
+            line-height: 45px;
+            font-size: 15px;
+            font-weight: 500;
+            background-color: #E31E24;
+            border-color: #E31E24;
+        }
+        img[id*="imgLoading"] 
+        {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            width: 15px;
+            display: none;
+        }
+        
+        .select2-container 
+        {
+            width: 100% !important;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered 
+        {
+            line-height: 40px;
+            padding-left: 15px;
+        }
+		
+		#div_loginform
+		{
+			display:none;
+		}
+		ul[class*="ui-front"]
+		{
+			background-color:#FFF;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	  
+		.banner-bar
+		{
+			background:#141414;
+		}
+		.banner-bar li
+		{
+			border-right: 1px solid #FFF;
+		}
+		.banner-bar ul 
+		{
+			flex-wrap: wrap;
+			justify-content: center;
+			display: flex;
+		}
+		.banner-bar ul li img
+		{
+			max-height:40px;
+			width:40px;
+		}
+		
+		
+		.btn-intop-apply
+		{
+			padding: 13px 45px;
+			font-size: 18px !important;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid var(--white);
+			font-weight: 600;
+			border-radius: 10px ;
+			transition: 0.3s;
+			color:#FFF;
+		}
+		.btn-intop-apply:hover
+		{
+			background-color:#e0181e !important;
+			border: 1px solid #e0181e !important;
+			color:#FFF;
+			cursor:pointer;
+		}
+
+	
+
+
+	.in-banner-content p
+	{
+		font-size: 18px;
+		line-height: 24px;
+		color: #ffffff;
+		margin-top: 0;
+		margin-bottom: 1rem;
+	}
+	.in-banner-content-logos {
+        padding-top: 8px;
+        padding-left: 15px;
+        padding-bottom: 8px;
+        padding-right: 25px;
+        background-color: #FFF !important;
+        border-top-right-radius: 45px;
+        margin-top: 50px;
+    }
+
+		
+		
+	
+	
