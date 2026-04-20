@@ -4,9 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Thank You - Chandigarh University Online</title>
+    <meta name="robots" content="noindex, nofollow">
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/header-footer.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V2XD1YSG1H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-V2XD1YSG1H');
+        gtag('event', 'conversion', { 'send_to': 'G-V2XD1YSG1H' });
+    </script>
     <style>
         body { font-family: 'Google Sans', Arial, sans-serif; }
         .thank-you-section {
@@ -28,6 +38,12 @@
             color: #444;
             max-width: 600px;
             margin: 0 auto 30px;
+        }
+        .thank-you-section .program-name {
+            font-size: 1.15rem;
+            color: #e0181e;
+            font-weight: 600;
+            margin-bottom: 25px;
         }
         .thank-you-section .btn-home {
             display: inline-block;
@@ -67,11 +83,23 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
             </div>
             <h1>Thank You!</h1>
+            <p id="programInfo" style="display:none;"></p>
             <p>Your application has been submitted successfully. Our admissions team will contact you shortly.</p>
             <p style="font-size: 0.95rem; color: #666;">For any queries, reach us at <a href="mailto:helpdesk@chandigarhuniversity.online">helpdesk@chandigarhuniversity.online</a> or call <a href="tel:9311381814">9311381814</a></p>
-            <a href="index.html" class="btn-home">Back to Home</a>
+            <a href="index" class="btn-home">Back to Home</a>
         </div>
     </div>
-
+    <script>
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var program = params.get('p');
+            if (program) {
+                var el = document.getElementById('programInfo');
+                el.textContent = 'Program: ' + decodeURIComponent(program);
+                el.className = 'program-name';
+                el.style.display = 'block';
+            }
+        })();
+    </script>
 </body>
 </html>

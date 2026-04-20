@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /assets/misc/
+Disallow: /thanks
+Disallow: /index_new
+
+Sitemap: https://www.chandigarhuniversity.online/sitemap.xml
