@@ -28,8 +28,8 @@ RewriteRule ^ /%1 [R=301,L]
 # Serve .html file for clean URLs
 # If the request doesn't have a file extension and
 # a matching .html file exists, serve it
+# Priority: .html file takes precedence over directory
 # ------------------------------------------------
-RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html [L]
