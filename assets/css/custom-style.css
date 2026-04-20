@@ -865,12 +865,14 @@ body {
 .course-list-slider button.slick-arrow.slick-prev::before,
 .industry-slider button.slick-arrow.slick-prev::before, .partner-slider button.slick-arrow.slick-prev::before {
   content: "\f104";
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
 }
 .course-list-slider button.slick-arrow.slick-next::before,
 .industry-slider button.slick-arrow.slick-next::before, .partner-slider button.slick-arrow.slick-next::before {
   content: "\f105";
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
 }
 .course-list-slider button.slick-arrow.slick-next,
 .industry-slider button.slick-arrow.slick-next, .partner-slider button.slick-arrow.slick-next {
@@ -1422,12 +1424,14 @@ body {
 .homepage-slider button.slick-prev:before {
   font-size: 30px;
   content: "\f104";
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
 }
 .homepage-slider button.slick-next:before {
   font-size: 30px;
   content: "\f105";
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
 }
 .homepage-slider button.slick-prev {
   left: 5%;
