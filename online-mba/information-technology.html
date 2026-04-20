@@ -10846,31 +10846,6 @@ s0.parentNode.insertBefore(s1,s0);
 
 
 
-                <div id="otp-section-modal" style="display:none; margin-bottom:15px;">
-
-
-
-                    <div class="d-flex     justify-content-between">
-
-                        <input type="text" id="otp-input-modal" class="form-control" placeholder="Enter OTP" style="margin-bottom:8px;width: 200px;padding: 22px 14px;border-radius:6px;border: 1px solid #000;">
-
-                        <button type="button" id="verify-otp-btn-modal" style="margin-bottom:8px;width: auto;margin-left: 10px;padding: 10px 30px;font-size:16px;font-weight:600;background: #cf1113;color:#fff;border:none;border-radius:6px;cursor:pointer;">Verify OTP</button>
-
-                    </div>
-
-                    <span id="otp-status-modal" style="display:block; margin-top:5px; color:green;"></span>
-
-                </div>
-
-
-
-                <div class="d-flex" style="margin-bottom:15px;">
-
-                    <input type="checkbox" id="customChecked" checked required>
-
-                    <label for="customChecked" style="font-size:10px;line-height:1.6;">By Clicking on submit I allow Chandigarh University to send program communication on email / sms / WhatsApp etc.</label>
-
-                </div>
 
 
 
@@ -10884,7 +10859,7 @@ s0.parentNode.insertBefore(s1,s0);
 
                     <input type="hidden" name="ltype" id="modal-ltype" value="">
 
-                    <button type="submit" id="customSubmitBtn" class="apply-btn-primary" style="width:auto;padding:12px 30px;font-size:16px;font-weight:600;color:#fff;border:none;border-radius:6px;cursor:pointer;" disabled>Enquire Now</button>
+                    <button type="submit" id="customSubmitBtn" class="apply-btn-primary" style="width:auto;padding:12px 30px;font-size:16px;font-weight:600;color:#fff;border:none;border-radius:6px;cursor:pointer;">Enquire Now</button>
 
                 </div>
 
@@ -11030,122 +11005,6 @@ s0.parentNode.insertBefore(s1,s0);
 
         footerSetCountryCodeFromUrl();
 
-        let otpVerifiedModal = false;
-
-        let mobileSentModal = "";
-
-        document.getElementById('customMobile').addEventListener('blur', function() {
-
-            var countryCode = (document.getElementById('footerCountryCodeHidden') && document.getElementById('footerCountryCodeHidden').value) || '91';
-
-            if (countryCode !== '91') return;
-
-            var mobile = this.value.replace(/\D/g, '');
-
-            var name = document.getElementById('customName').value;
-
-            var email = document.getElementById('customEmail').value;
-
-            var mobileRegex = /^[6-9][0-9]{9}$/;
-
-            if (!mobile || !mobileRegex.test(mobile)) return;
-
-            if (!otpVerifiedModal && mobile !== mobileSentModal) {
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('POST', 'https://www.chandigarhuniversity.online/api/send_otp.php', true);
-
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-                xhr.onload = function() {
-
-                    document.getElementById('otp-section-modal').style.display = 'block';
-
-                    document.getElementById('otp-status-modal').style.color = 'green';
-
-                    document.getElementById('otp-status-modal').textContent = 'OTP sent to your mobile.';
-
-                    mobileSentModal = mobile;
-
-                };
-
-                xhr.onerror = function() {
-
-                    document.getElementById('otp-status-modal').style.color = 'red';
-
-                    document.getElementById('otp-status-modal').textContent = 'Failed to send OTP. Try again.';
-
-                };
-
-                xhr.send('mobile_no=' + encodeURIComponent(mobile) + '&name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&media=Direct-CU');
-
-            }
-
-        });
-
-        // Verify OTP
-
-        document.getElementById('verify-otp-btn-modal').addEventListener('click', function() {
-
-            var otp = document.getElementById('otp-input-modal').value;
-
-            var mobile = document.getElementById('customMobile').value;
-
-            if (otp.length >= 4) {
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('POST', 'https://www.chandigarhuniversity.online/api/verify_otp.php', true);
-
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-                xhr.onload = function() {
-
-                    if (xhr.responseText.trim() === 'Otp verified successfully') {
-
-                        otpVerifiedModal = true;
-
-                        document.getElementById('otp-status-modal').style.color = 'green';
-
-                        document.getElementById('otp-status-modal').textContent = 'OTP verified! You can now submit the form.';
-
-                        document.getElementById('customSubmitBtn').disabled = false;
-
-                        document.getElementById('otp-input-modal').disabled = true;
-
-                        document.getElementById('verify-otp-btn-modal').disabled = true;
-
-                    } else {
-
-                        document.getElementById('otp-status-modal').style.color = 'red';
-
-                        document.getElementById('otp-status-modal').textContent = 'Invalid OTP. Try again.';
-
-                    }
-
-                };
-
-                xhr.onerror = function() {
-
-                    document.getElementById('otp-status-modal').style.color = 'red';
-
-                    document.getElementById('otp-status-modal').textContent = 'Error verifying OTP.';
-
-                };
-
-                xhr.send('otp=' + encodeURIComponent(otp) + '&mobile_no=' + encodeURIComponent(mobile));
-
-            } else {
-
-                document.getElementById('otp-status-modal').style.color = 'red';
-
-                document.getElementById('otp-status-modal').textContent = 'Please enter a valid OTP.';
-
-            }
-
-        });
-
         // Handle form submit: require OTP only for India; validate mobile by country
 
         document.getElementById('customApplyNowForm').addEventListener('submit', function(e) {
@@ -11174,15 +11033,6 @@ s0.parentNode.insertBefore(s1,s0);
 
             }
 
-            if (isIndia && !otpVerifiedModal) {
-
-                document.getElementById('otp-status-modal').style.color = 'red';
-
-                document.getElementById('otp-status-modal').textContent = 'Please verify OTP before submitting.';
-
-                return false;
-
-            }
 
             
 
@@ -11290,33 +11140,6 @@ s0.parentNode.insertBefore(s1,s0);
 
 
 
-<script>
-
-  var Tawk_API = Tawk_API || {};
-
-  Tawk_API.onLoad = function() {
-
-    function adjustTawkPosition() {
-
-      var isMobile = window.innerWidth <= 768; 
-
-      var tawkIframe = document.querySelector("iframe[title='chat widget']");
-
-      if (tawkIframe && isMobile) {
-
-        tawkIframe.style.setProperty("bottom", "75px", "important");
-
-      }
-
-    }
-
-    adjustTawkPosition();
-
-    window.addEventListener("resize", adjustTawkPosition);
-
-  };
-
-</script>
 
 	<style>
 

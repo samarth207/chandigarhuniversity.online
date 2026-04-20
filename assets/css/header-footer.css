@@ -356,7 +356,7 @@ footer {
 	color: var(--bs-white);
 	font-size: 20px;
 	line-height: 25px;
-    font-weight: 400;
+    font-weight: 900;
 }
 .goto-top:hover {
     background-color: var(--bs-theme-pink);

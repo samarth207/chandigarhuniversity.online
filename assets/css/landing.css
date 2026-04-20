@@ -592,6 +592,25 @@
 }
 .expert-section .blaze-prev, .expert-section .blaze-next {
     z-index: 2;
+    background-image: none;
+    background-color: rgba(255, 255, 255, .25);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.expert-section .blaze-prev {
+    background-image: url('../images/left_white.png');
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: center;
+}
+.expert-section .blaze-next {
+    background-image: url('../images/right_white.png');
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: center;
 }
 .faculty-card {
     padding: 30px;
