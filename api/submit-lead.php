@@ -17,27 +17,32 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 require_once __DIR__ . '/db-config.php';
 
+// Accept both JSON and FormData
 $input = json_decode(file_get_contents('php://input'), true);
+if (!$input && !empty($_POST)) {
+    $input = $_POST;
+}
 
 if (!$input) {
     http_response_code(400);
-    echo json_encode(['Status' => 'Error', 'Message' => 'Invalid JSON input']);
+    echo json_encode(['Status' => 'Error', 'Message' => 'Invalid input']);
     exit;
 }
 
-// Sanitize and validate
-$name = trim($input['StudentName'] ?? $input['FullName'] ?? '');
-$email = trim($input['StudentEmail'] ?? $input['Email'] ?? '');
-$mobile = trim($input['StudentMobile'] ?? $input['Mobile'] ?? '');
-$program = trim($input['StudentProgram'] ?? $input['ProgramInterested'] ?? '');
-$source = trim($input['StudentSource'] ?? $input['Source'] ?? 'Website');
+// Sanitize and validate - support both JSON field names and form field names
+$name = trim($input['StudentName'] ?? $input['FullName'] ?? $input['name'] ?? '');
+$email = trim($input['StudentEmail'] ?? $input['Email'] ?? $input['email'] ?? '');
+$mobile = trim($input['StudentMobile'] ?? $input['Mobile'] ?? $input['mobile'] ?? '');
+$program = trim($input['StudentProgram'] ?? $input['ProgramInterested'] ?? $input['course'] ?? '');
+$source = trim($input['StudentSource'] ?? $input['Source'] ?? $input['source'] ?? 'Website');
 $ip = $_SERVER['REMOTE_ADDR'] ?? '';
-$countryCode = trim($input['StudentCountryCode'] ?? '+91');
-$city = trim($input['CityName'] ?? '');
-$param1 = trim($input['mx_Param1'] ?? '');
-$param2 = trim($input['mx_Param2'] ?? '');
-$param3 = trim($input['mx_Param3'] ?? '');
+$countryCode = trim($input['StudentCountryCode'] ?? $input['countryCode'] ?? '+91');
+$city = trim($input['CityName'] ?? $input['city'] ?? '');
+$param1 = trim($input['mx_Param1'] ?? $input['media'] ?? '');
+$param2 = trim($input['mx_Param2'] ?? $input['campaign'] ?? '');
+$param3 = trim($input['mx_Param3'] ?? $input['ltype'] ?? '');
 $page = trim($input['Page'] ?? $_SERVER['HTTP_REFERER'] ?? '');
+$qualification = trim($input['qualification'] ?? '');
 
 // Validation
 if (empty($name) || strlen($name) < 2 || strlen($name) > 100) {
@@ -84,7 +89,8 @@ try {
         ':page' => htmlspecialchars($page, ENT_QUOTES, 'UTF-8')
     ]);
 
-    echo json_encode(['Status' => 'Success', 'Message' => 'Registration successful']);
+    $leadId = $pdo->lastInsertId();
+    echo json_encode(['Status' => 'Success', 'Message' => 'Registration successful', 'data' => ['lead_id' => $leadId]]);
 
 } catch (PDOException $e) {
     http_response_code(500);

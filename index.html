@@ -26,9 +26,6 @@
  	<meta property="og:description" content="Develop your career with Chandigarh University's online degree courses. Pursue UGC approved online bachelors and online masters degree in India delivered by top academicians.">
  	<meta property="og:url" content="https://www.chandigarhuniversity.online/" />
  	<link rel="shortcut icon" href="https://cdn-websites.onlinecu.in/ONLINECU/public_html/assets/uploads/favicon.png" type="image/x-icon">
- 	<link rel="preload" href="https://www.chandigarhuniversity.online/serve-font.php?file=GoogleSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
- 	<link rel="preload" href="https://www.chandigarhuniversity.online/serve-font.php?file=GoogleSans-Medium.woff2" as="font" type="font/woff2" crossorigin>
- 	<link rel="preload" href="https://www.chandigarhuniversity.online/serve-font.php?file=GoogleSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<!--for form -->
@@ -6911,7 +6908,7 @@
             
             var formData = new FormData(this);
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://www.chandigarhuniversity.online/api/erp_api.php', true);
+            xhr.open('POST', 'api/submit-lead.php', true);
             xhr.onload = function() {
                 if (xhr.status === 200) {
                     let leadId = 0;
