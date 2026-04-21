@@ -410,8 +410,9 @@ body{padding-top:165px}
                 <div style="font-size:13px;font-weight:700;color:#fca5a5;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px">Ready to Study Online?</div>
                 <h3 style="color:#fff;font-size:18px;font-weight:800;margin:0 0 12px;line-height:1.3">Talk to an Admissions Counselor</h3>
                 <p style="font-size:13px;color:rgba(255,255,255,0.7);margin:0 0 18px;line-height:1.6">Get personalized guidance for program selection, fees & admission process.</p>
-                <form id="sidebarLeadForm" action="/api/submit-lead.php" method="POST" onsubmit="return handleBlogLeadForm(this,event)">
+                <form id="sidebarLeadForm" action="/api/submit-lead.php" method="POST">
                     <input type="text" name="StudentName" placeholder="Your Name *" required style="width:100%;padding:10px 14px;border-radius:8px;border:none;font-size:13px;margin-bottom:10px;font-family:'Poppins',sans-serif">
+                    <input type="email" name="StudentEmail" placeholder="Email Address *" required style="width:100%;padding:10px 14px;border-radius:8px;border:none;font-size:13px;margin-bottom:10px;font-family:'Poppins',sans-serif">
                     <input type="tel" name="StudentMobile" placeholder="Phone Number *" required style="width:100%;padding:10px 14px;border-radius:8px;border:none;font-size:13px;margin-bottom:10px;font-family:'Poppins',sans-serif">
                     <select name="StudentProgram" required style="width:100%;padding:10px 14px;border-radius:8px;border:none;font-size:13px;margin-bottom:14px;font-family:'Poppins',sans-serif">
                         <option value="">Select Program *</option>
@@ -460,67 +461,107 @@ body{padding-top:165px}
 <?php include_once __DIR__ . '/../includes/site-footer.php'; ?>
 
 <script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/plugins.js" defer></script>
 <script>
-// Smooth scroll for TOC links
-document.querySelectorAll('.toc-list a, .toc-box a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Smooth scroll for TOC links
+    document.querySelectorAll('.toc-list a, .toc-box a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
     });
+
+    // Highlight active TOC item on scroll
+    var headings = document.querySelectorAll('.blog-post-content h2, .blog-post-content h3, .blog-post-content h4');
+    var tocLinks = document.querySelectorAll('.toc-list a');
+    window.addEventListener('scroll', function() {
+        var current = '';
+        headings.forEach(function(h) { if (h.getBoundingClientRect().top < 100) current = '#' + h.id; });
+        tocLinks.forEach(function(a) {
+            a.style.color = '';
+            a.style.fontWeight = '';
+            if (a.getAttribute('href') === current) {
+                a.style.color = '#d42b2b';
+                a.style.fontWeight = '700';
+            }
+        });
+    }, { passive: true });
+
+    // Handle all embedded .blf-form lead forms in blog content
+    document.querySelectorAll('.blf-form').forEach(function(form) {
+        form.removeAttribute('onsubmit');
+        form.addEventListener('submit', function(e) {
+            handleBlogLeadForm(form, e);
+        });
+    });
+
+    // Sidebar lead form — submit via fetch, no page redirect
+    var leadForm = document.getElementById('sidebarLeadForm');
+    if (leadForm) {
+        leadForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = leadForm.querySelector('button[type="submit"]');
+            var origHTML = btn ? btn.innerHTML : '';
+            if (btn) { btn.innerHTML = 'Sending...'; btn.disabled = true; }
+            fetch('/api/submit-lead.php', { method: 'POST', body: new FormData(leadForm) })
+            .then(function(r) { return r.json(); })
+            .then(function(res) {
+                if (res.Status === 'Success' || res.status === 'success') {
+                    leadForm.innerHTML = '<div style="text-align:center;padding:20px"><i class="fas fa-check-circle" style="font-size:40px;color:#10b981;display:block;margin-bottom:10px"></i><strong style="color:#fff;font-size:16px">Thank you!</strong><p style="color:rgba(255,255,255,0.8);font-size:14px;margin-top:4px">Our team will contact you shortly.</p></div>';
+                } else {
+                    if (btn) { btn.innerHTML = origHTML; btn.disabled = false; }
+                    alert(res.Message || 'Please fill all required fields.');
+                }
+            })
+            .catch(function() {
+                if (btn) { btn.innerHTML = origHTML; btn.disabled = false; }
+                alert('Connection error. Please try again.');
+            });
+        });
+    }
+
 });
 
-// Highlight active TOC item on scroll
-const headings = document.querySelectorAll('.blog-post-content h2, .blog-post-content h3, .blog-post-content h4');
-const tocLinks = document.querySelectorAll('.toc-list a');
-window.addEventListener('scroll', function() {
-    let current = '';
-    headings.forEach(h => { if (h.getBoundingClientRect().top < 100) current = '#' + h.id; });
-    tocLinks.forEach(a => {
-        a.style.color = '';
-        a.style.fontWeight = '';
-        if (a.getAttribute('href') === current) {
-            a.style.color = '#d42b2b';
-            a.style.fontWeight = '700';
+// Global handler for lead forms embedded in blog content via onsubmit
+function handleBlogLeadForm(form, e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var origHTML = btn ? btn.innerHTML : '';
+    if (btn) { btn.innerHTML = 'Sending...'; btn.disabled = true; }
+    fetch('/api/submit-lead.php', { method: 'POST', body: new FormData(form) })
+    .then(function(r) { return r.json(); })
+    .then(function(res) {
+        if (res.Status === 'Success' || res.status === 'success') {
+            form.innerHTML = '<div style="text-align:center;padding:20px;color:#fff"><i class="fas fa-check-circle" style="font-size:36px;color:#10b981;margin-bottom:8px;display:block"></i><strong>Thank you!</strong> We\'ll call you shortly.</div>';
+        } else {
+            if (btn) { btn.innerHTML = origHTML; btn.disabled = false; }
+            alert(res.Message || 'Please fill all required fields.');
         }
+    })
+    .catch(function() {
+        if (btn) { btn.innerHTML = origHTML; btn.disabled = false; }
+        alert('Connection error. Please try again.');
     });
-}, { passive: true });
+    return false;
+}
 
-// Copy link
+// Copy link (needs to be global for onclick attribute)
 function copyLink() {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-        const btn = document.querySelector('.share-copy');
-        const orig = btn.innerHTML;
+    navigator.clipboard.writeText(window.location.href).then(function() {
+        var btn = document.querySelector('.share-copy');
+        var orig = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
         btn.style.background = '#10b981';
         btn.style.color = '#fff';
-        setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.style.color = ''; }, 2500);
+        setTimeout(function() { btn.innerHTML = orig; btn.style.background = ''; btn.style.color = ''; }, 2500);
     });
 }
-
-// Lead form handler (for blog-lead-form blocks in content)
-function handleBlogLeadForm(form, e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    const btn = form.querySelector('button[type="submit"]');
-    if (btn) { const orig = btn.textContent; btn.textContent = 'Sending...'; btn.disabled = true; }
-    fetch('/api/submit-lead.php', { method: 'POST', body: data })
-    .then(r => r.json()).then(res => {
-        if (res.Status === 'Success' || res.status === 'success') {
-            form.closest('.blog-lead-form, #sidebarLeadForm')?.insertAdjacentHTML('afterbegin',
-                '<div style="text-align:center;padding:20px"><i class="fas fa-check-circle" style="font-size:40px;color:#10b981;display:block;margin-bottom:10px"></i><strong style="color:#fff;font-size:16px">Thank you!</strong><p style="color:rgba(255,255,255,0.8);font-size:14px;margin-top:4px">Our team will contact you shortly.</p></div>');
-            form.style.display = 'none';
-        } else {
-            alert(res.Message || 'Please fill all required fields.');
-        }
-    }).catch(() => alert('Connection error. Please try again.'));
-    return false;
-}
 </script>
-<script src="/assets/js/jquery.min.js"></script>
-<script src="/assets/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/js/plugins.js" defer></script>
 </body>
 </html>

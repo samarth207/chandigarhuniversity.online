@@ -120,7 +120,7 @@
     background: rgba(255,255,255,0.95); color: #0f1d35; width: 100%;
 }
 .blf-input:focus { outline: 2px solid #d42b2b; }
-.blf-fields .blf-input:last-child { grid-column: span 2; }
+.blf-fields .blf-full { grid-column: span 2; }
 .blf-btn {
     width: 100%; padding: 14px; background: #d42b2b; color: #fff;
     border: none; border-radius: 8px; font-size: 16px; font-weight: 700;
@@ -130,7 +130,7 @@
 .blf-btn:hover { background: #b01f1f; transform: translateY(-1px); }
 @media (max-width: 600px) {
     .blf-fields { grid-template-columns: 1fr; }
-    .blf-fields .blf-input:last-child { grid-column: span 1; }
+    .blf-fields .blf-full { grid-column: span 1; }
     .blog-lead-form { padding: 24px 20px; }
 }
 

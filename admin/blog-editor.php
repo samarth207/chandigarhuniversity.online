@@ -486,7 +486,8 @@ tinymce.init({
             <div class="blf-fields">
                 <input type="text" name="StudentName" placeholder="Your Name *" required class="blf-input">
                 <input type="tel" name="StudentMobile" placeholder="Phone Number *" required class="blf-input" maxlength="15">
-                <select name="StudentProgram" required class="blf-input" style="grid-column:span 2">
+                <input type="email" name="StudentEmail" placeholder="Email Address *" required class="blf-input blf-full">
+                <select name="StudentProgram" required class="blf-input blf-full">
                     <option value="">Select Course *</option>
                     ${programOptions}
                 </select>
@@ -523,6 +524,32 @@ tinymce.init({
         // ===== Validate image alt text on image insert =====
         editor.on('SetContent', function() {
             // Check after content set
+        });
+
+        // ===== Inject lead form handler into TinyMCE iframe =====
+        editor.on('init', function() {
+            var win = editor.getWin();
+            win.handleBlogLeadForm = function(form, e) {
+                e.preventDefault();
+                var btn = form.querySelector('button[type="submit"]');
+                var origHTML = btn ? btn.innerHTML : '';
+                if (btn) { btn.innerHTML = 'Sending...'; btn.disabled = true; }
+                fetch('/api/submit-lead.php', { method: 'POST', body: new FormData(form) })
+                .then(function(r) { return r.json(); })
+                .then(function(res) {
+                    if (res.Status === 'Success' || res.status === 'success') {
+                        form.closest('.blog-lead-form').innerHTML = '<div style="text-align:center;padding:32px 20px"><div style="font-size:40px;margin-bottom:10px">✅</div><strong style="color:#fff;font-size:18px">Thank you!</strong><p style="color:rgba(255,255,255,0.8);margin-top:8px;font-size:14px">Our counselor will call you shortly.</p></div>';
+                    } else {
+                        if (btn) { btn.innerHTML = origHTML; btn.disabled = false; }
+                        alert(res.Message || 'Please fill all required fields.');
+                    }
+                })
+                .catch(function() {
+                    if (btn) { btn.innerHTML = origHTML; btn.disabled = false; }
+                    alert('Connection error. Please try again.');
+                });
+                return false;
+            };
         });
     },
     // Force alt text on image dialog

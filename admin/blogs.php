@@ -109,7 +109,7 @@ require_once __DIR__ . '/includes/header.php';
                     <?php if ($b['status'] === 'published'): ?>
                     <a href="/blog/<?= $b['slug'] ?>" class="action-btn action-btn-view" target="_blank" title="View Live"><i class="fas fa-eye"></i></a>
                     <?php endif; ?>
-                    <button onclick="deleteBlog(<?= $b['id'] ?>, <?= json_encode($b['title']) ?>)" class="action-btn action-btn-delete" title="Delete"><i class="fas fa-trash"></i></button>
+                    <button onclick="deleteBlog(<?= $b['id'] ?>, <?= htmlspecialchars(json_encode($b['title'])) ?>)" class="action-btn action-btn-delete" title="Delete"><i class="fas fa-trash"></i></button>
                 </div>
             </td>
         </tr>
