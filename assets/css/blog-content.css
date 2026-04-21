@@ -107,7 +107,7 @@
 }
 .blf-inner { position: relative; z-index: 1; }
 .blf-headline {
-    color: #fff; font-size: 22px; font-weight: 800; text-align: center;
+    color: #fff !important; font-size: 22px; font-weight: 800; text-align: center;
     margin: 0 0 20px; font-family: 'Poppins', sans-serif;
 }
 .blf-form { max-width: 500px; margin: 0 auto; }

@@ -199,7 +199,7 @@ body{font-family:'Poppins',sans-serif;color:#374151}
 .author-chip img{width:24px;height:24px;border-radius:50%;object-fit:cover}
 .author-chip-initial{width:24px;height:24px;border-radius:50%;background:#d42b2b;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
-.feature-img-wrap{max-width:1200px;margin:-24px auto 0;padding:0 20px;position:relative;z-index:2}
+.feature-img-wrap{max-width:1200px;margin:20px auto 0;padding:0 20px;position:relative;z-index:2}
 .feature-img-wrap img{width:100%;max-height:500px;object-fit:cover;border-radius:16px;box-shadow:0 16px 48px rgba(0,0,0,0.3)}
 
 .post-layout{display:grid;grid-template-columns:1fr 300px;gap:32px;align-items:start;padding:40px 0}

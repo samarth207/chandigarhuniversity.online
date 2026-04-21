@@ -411,7 +411,7 @@ tinymce.init({
         .faq-question { color: #0f1d35; font-size: 16px; font-weight: 700; margin: 0 0 8px; }
         .faq-answer { color: #374151; margin: 0; }
         .blog-lead-form { background: linear-gradient(135deg, #0f1d35, #1a2d4a); border-radius: 12px; padding: 28px; margin: 24px 0; color: #fff; }
-        .blf-headline { color: #fff; font-size: 20px; font-weight: 700; margin: 0 0 16px; text-align: center; }
+        .blf-headline { color: #fff !important; font-size: 20px; font-weight: 700; margin: 0 0 16px; text-align: center; }
         .blf-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
         .blf-input { padding: 10px 14px; border-radius: 6px; border: none; font-size: 14px; width: 100%; }
         .blf-btn { width: 100%; padding: 12px; background: #d42b2b; color: #fff; border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer; }
