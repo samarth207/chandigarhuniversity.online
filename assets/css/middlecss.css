@@ -503,6 +503,7 @@
         margin-top: 0px;
         margin-bottom: 280px;
         float: left;
+        position: relative;
 	}
 	.program-slider-bannernew-overlay
 	{
