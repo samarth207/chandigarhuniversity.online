@@ -1,4 +1,4 @@
-
+﻿
  <!DOCTYPE html>
  <html lang="en" class="h-100">
 
@@ -4911,60 +4911,7 @@
  			width: 450px;
  		}
  	</style>
- 	<!--  Our Blog section -->
- 	<section class="ourblog-section">
 
- 		<div class="container">
- 			<h2 class="ourblog-mainheadingtext"> Our <span class="redtxt"><b> Blogs </b> </span> </h2>
-
- 			<div class="ourblog-allpostblog">
-
- 				<div class="blaze-slider" style="">
-
- 					<div class="blaze-container">
-
- 						<div class="blaze-track-container">
-
- 							<div class="blaze-track">
-
- 								<div class="ourblog-mainpostblock">
- 									<img src="new/uploads/blogs/deapfake-blog.png" class="ourblog-mainpostpic">
-
- 									<div class="ourblog-innerdetail-block">
- 										<!-- <p class="ourblog-datetext"> March 06, 2024 </p> -->
- 										<a href="https://www.chandigarhuniversity.online/blog/uploads/cu/deepfakes-and-identity-theft-safeguarding-personal-data.php" class="ourblog-nametext"> Deepfakes and Identity Theft: Safeguarding Personal Data in the Era of Synthetic Realities </a>
- 										<p class="ourblog-detailtext"> In today's digitally interconnected world, the proliferation of deepfake technology poses a significant threat </p>
- 										<a href="https://www.chandigarhuniversity.online/blog/uploads/cu/deepfakes-and-identity-theft-safeguarding-personal-data.php" class="ourblog-readmore-btn"> Read More </a>
- 									</div>
- 								</div>
-
- 								
- 								<div class="ourblog-mainpostblock">
- 									<img src="new/uploads/blogs/10-high-paying-opportunities-after-ma-jmc-blog.jpg" class="ourblog-mainpostpic">
-
- 									<div class="ourblog-innerdetail-block">
- 										<a href="https://www.chandigarhuniversity.online/blog/cu/10-high-paying-opportunities-after-ma-in-journalism-and-mass-communication.php" class="ourblog-nametext"> 10 High Paying Opportunities After MA In Journalism And Mass Communication </a>
- 										<p class="ourblog-detailtext"> Two of the most popular and renowned fields of education among today's online learners looking for better career opportunities are Mass Communication and Journalism. </p>
- 										<a href="https://www.chandigarhuniversity.online/blog/cu/10-high-paying-opportunities-after-ma-in-journalism-and-mass-communication.php" class="ourblog-readmore-btn"> Read More </a>
- 									</div>
- 								</div>
-
- 								<div class="ourblog-mainpostblock">
- 									<img src="new/uploads/blogs/future-online-education.png" class="ourblog-mainpostpic">
-
- 									<div class="ourblog-innerdetail-block">
- 										<a href="https://www.chandigarhuniversity.online/blog/cu/the-future-of-online-education-technologies-and-possibilities.php" class="ourblog-nametext"> The Future of Online Education Emerging Technologies and Possibilities </a>
- 										<p class="ourblog-detailtext"> The COVID-19 pandemic led many higher education centres into uncertain territory. Post-secondary institutional leadership and faculty helped students </p>
- 										<a href="https://www.chandigarhuniversity.online/blog/cu/the-future-of-online-education-technologies-and-possibilities.php" class="ourblog-readmore-btn"> Read More </a>
- 									</div>
- 								</div>
- 							</div>
- 						</div>
- 					</div>
- 				</div>
- 			</div>
- 		</div>
- 	</section>
  	<style>
  		.section-testimonial h2 {
  			margin-top: 20px;
@@ -5708,7 +5655,7 @@
                 </a>
             </li>-->
  				<!-- <li class="shadow animated-gradient">
-                <a href="https://www.cuchd.in/acp/" target="_blank">
+                <a href="https://www.chandigarhuniversity.online/acp/" target="_blank">
                     <h6>Advance Credit Program</h6>
                     <p>Get a headstart in your career & add advance credits to your marksheet.</p>
                     <span class="btn btn-md text-link">Apply Now</span>
@@ -6120,7 +6067,7 @@
     // Replace this with your actual URL
     function getprogramwithapi() {
         var programlistschol = "";
-        const urlapi = 'https://uims.cuchd.in/cuservices/api/AppOnline/GetProgramForWebApp?Pcode=ALL';
+        const urlapi = '/api/get-programs.php';
         const xhr = new XMLHttpRequest();
         xhr.open('GET', urlapi, true);
         xhr.onreadystatechange = function() {
@@ -6182,7 +6129,7 @@
           mx_Param3: ""
         };
         */
-        const url = 'https://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead'; // Replace with your actual API endpoint
+        const url = '/api/submit-lead.php'; // Replace with your actual API endpoint
         const authKey = 'Bearer 6!jtPoHk4{z31tCk$Mmq{}XZqjw$_an1/5Krv'; // Replace with your real token
         var schol_nameid = document.getElementById('schol_nameid').value;
         var schol_email = document.getElementById('schol_email').value;
@@ -6231,8 +6178,8 @@
             mx_Param2: "",
             mx_Param3: ""
         };
-        //fetch('https://cors-anywhere.herokuapp.com/https://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead'
-        fetch('https://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead/', {
+        //fetch('/api/submit-lead.php'
+        fetch('/api/submit-lead.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -6273,8 +6220,8 @@
                     };
                     // Create the request
                     const xhr = new XMLHttpRequest();
-                    // xhr.open("POST", "http://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead", true);
-                    xhr.open("POST", "https://cors-anywhere.herokuapp.com/http://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead", true);
+                    // xhr.open("POST", "/api/submit-lead.php", true);
+                    xhr.open("POST", "/api/submit-lead.php", true);
                     xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.setRequestHeader("Authorization", "Bearer 6!jtPoHk4{z31tCk$Mmq{}XZqjw$_an1/5Krv");
                     xhr.onreadystatechange = function() {
@@ -6309,12 +6256,12 @@
                                         
                                             var api_url = '';
                                             
-                                            api_url = 'https://api.cuchd.in/api/Utility/PostJsonRegistrationFormOnline_LP?Data={"FullName":"' + Name + '","Email":"' + EmailId + '","Mobile":"' + MobileNo + '","ProgramInterested":"' + ProgramCode + '","CityName":"' + CityName + '","DOB":"' + DOB + '","auth_id":"' + "" + '","ProgramId":"' + ProgramCode + '","Source":"' + source + '"}';
+                                            api_url = '/api/submit-lead.php';
                                             $.ajax({
                                                 url: api_url,
-                                           //     method: 'POST',
+                                           method: 'POST',
                                                 crossOrigin: true,
-                                              //  contentType: 'application/json',
+                                              contentType: 'application/json',
 
                                                 success: function (data) {
                                                     console.log('data',data)
@@ -6620,7 +6567,7 @@
                                 <li><a href="how-to-apply">How to Apply</a></li>
                                 <li><a href="admission-guideline">Admission Guideline</a></li>
                                 <li><a href="assets/uploads/New_UGC_Approval_Chandigarh_University_Online_Degree_Programmes-July2025&Onwards.pdf" target="_blank">UGC-DEB Approval</a></li>
-                                <li><a href="https://www.onlinecu.in/assets/uploads/Online-Degree-Equivalence.pdf" target="_blank">Online Degree</a></li>
+                                <li><a href="/assets/uploads/Online-Degree-Equivalence.pdf" target="_blank">Online Degree</a></li>
                                 <li><a href="learners-stories">Student Stories</a></li>
                                 <li><a href="contact-us">Contact Us</a></li>
                                 <li><a href="ciqa-report" target="_blank">CIQA Report</a></li>
@@ -7667,6 +7614,27 @@ var x = setInterval(function() {
 	*/
  		});
  	</script>
+
+<!-- LATEST BLOGS SECTION -->
+<section id="latest-blogs-section" style="padding:60px 0;background:#f8fafc;display:none">
+ <div style="max-width:1200px;margin:0 auto;padding:0 20px">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px">
+   <div><div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#d42b2b;margin-bottom:6px">FROM OUR BLOG</div><h2 style="font-size:32px;font-weight:800;color:#0f1d35;margin:0;font-family:'Poppins',sans-serif">Latest Articles &amp; Insights</h2></div>
+   <a href="/blog/" style="background:#0f1d35;color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:700;font-family:'Poppins',sans-serif;display:inline-flex;align-items:center;gap:8px" onmouseover="this.style.background='#d42b2b'" onmouseout="this.style.background='#0f1d35'">View All Blogs <i class="fas fa-arrow-right"></i></a>
+  </div>
+  <div id="latest-blogs-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px"><div style="text-align:center;padding:40px;grid-column:span 3;color:#9ca3af"><i class="fas fa-spinner fa-spin fa-2x"></i></div></div>
+ </div>
+</section>
+<style>
+.lb-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}.lb-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.13)}.lb-card-img{position:relative;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,#0f1d35,#1a2d4a)}.lb-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.lb-card:hover .lb-card-img img{transform:scale(1.05)}.lb-cat{position:absolute;top:12px;left:12px;background:#d42b2b;color:#fff;padding:3px 12px;border-radius:50px;font-size:11px;font-weight:700}.lb-body{padding:20px;flex:1;display:flex;flex-direction:column}.lb-title{font-size:16px;font-weight:700;color:#0f1d35;margin:0 0 8px;line-height:1.4}.lb-title a{color:inherit;text-decoration:none}.lb-title a:hover{color:#d42b2b}.lb-excerpt{font-size:13.5px;color:#6b7280;margin:0 0 14px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1}.lb-meta{font-size:12px;color:#9ca3af;display:flex;gap:12px;border-top:1px solid #f1f5f9;padding-top:12px;flex-wrap:wrap}.lb-read-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#d42b2b;text-decoration:none;margin-top:10px}@media(max-width:900px){#latest-blogs-grid{grid-template-columns:repeat(2,1fr)!important}}@media(max-width:580px){#latest-blogs-grid{grid-template-columns:1fr!important}}
+</style>
+<script>
+(function(){function formatDate(d){if(!d)return'';var dt=new Date(d);return dt.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});}
+function renderCard(b){var cat=(b.categories&&b.categories[0])?b.categories[0].name:'';var img=b.feature_image?'<img src="'+b.feature_image+'" alt="'+(b.feature_image_alt||'')+'" loading="lazy">'
+:'<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center"><i class="fas fa-newspaper" style="color:rgba(255,255,255,0.3);font-size:32px"></i></div>';
+return'<article class="lb-card"><div class="lb-card-img">'+img+(cat?'<span class="lb-cat">'+cat+'</span>':'')+'</div><div class="lb-body"><h3 class="lb-title"><a href="/blog/'+b.slug+'">'+b.title+'</a></h3><p class="lb-excerpt">'+(b.excerpt||'')+'</p><div class="lb-meta">'+(b.author_name?'<span><i class="fas fa-user"></i> '+b.author_name+'</span>':'')+(b.publish_date?'<span><i class="fas fa-calendar-alt"></i> '+formatDate(b.publish_date)+'</span>':'')+(b.read_time?'<span><i class="fas fa-clock"></i> '+b.read_time+' min</span>':'')+'</div><a href="/blog/'+b.slug+'" class="lb-read-link">Read Article <i class="fas fa-arrow-right"></i></a></div></article>';}
+fetch('/api/blog-get.php?latest=3').then(function(r){return r.json();}).then(function(res){if(res.status==='success'&&res.data&&res.data.length){document.getElementById('latest-blogs-grid').innerHTML=res.data.map(renderCard).join('');document.getElementById('latest-blogs-section').style.display='block';}}).catch(function(){});})();
+</script>
 
 </body>
 

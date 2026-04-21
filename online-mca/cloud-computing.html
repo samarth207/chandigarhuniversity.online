@@ -26,8 +26,6 @@
 	<!-- Preconnect to API domains for faster loading -->
 	<link rel="preconnect" href="https://www.chandigarhuniversity.online">
 	<link rel="dns-prefetch" href="https://www.chandigarhuniversity.online">
-	<link rel="preconnect" href="https://cucet.cuchd.in">
-	<link rel="dns-prefetch" href="https://cucet.cuchd.in">
 	
 	<!-- Preload critical images for mobile -->
 	<link rel="preload" as="image" href="../assets/program/mca-mobile-banner.webp" fetchpriority="high">
@@ -3193,11 +3191,7 @@
 				</div>
 				<div class="col-lg-4">
 					<div class="digilocker-section shadow">
-						<!-- 
-							<a href="https://apply.onlinecu.in/index.aspx?type=onlinecu">
-								<img src="../assets/uploads/website-digilocker-3.jpg" class="digilocker-img" alt="DigiLocker Integration" loading="lazy">
-							</a>
-							-->
+						
 						<a href="../mba-x">
 							<img src="../assets/webpImages/mba-x-banner-for-allpage.webp" class="digilocker-img" alt="MBA-X Program Banner" loading="lazy">
 						</a>
@@ -5230,7 +5224,7 @@
     // Replace this with your actual URL
     function getprogramwithapi() {
         var programlistschol = "";
-        const urlapi = 'https://uims.cuchd.in/cuservices/api/AppOnline/GetProgramForWebApp?Pcode=ALL';
+        const urlapi = '/api/get-programs.php';
         const xhr = new XMLHttpRequest();
         xhr.open('GET', urlapi, true);
         xhr.onreadystatechange = function() {
@@ -5292,7 +5286,7 @@
           mx_Param3: ""
         };
         */
-        const url = 'https://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead'; // Replace with your actual API endpoint
+        const url = '/api/submit-lead.php'; // Replace with your actual API endpoint
         const authKey = 'Bearer 6!jtPoHk4{z31tCk$Mmq{}XZqjw$_an1/5Krv'; // Replace with your real token
         var schol_nameid = document.getElementById('schol_nameid').value;
         var schol_email = document.getElementById('schol_email').value;
@@ -5341,8 +5335,8 @@
             mx_Param2: "",
             mx_Param3: ""
         };
-        //fetch('https://cors-anywhere.herokuapp.com/https://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead'
-        fetch('https://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead/', {
+        //fetch('/api/submit-lead.php'
+        fetch('/api/submit-lead.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -5383,8 +5377,8 @@
                     };
                     // Create the request
                     const xhr = new XMLHttpRequest();
-                    // xhr.open("POST", "http://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead", true);
-                    xhr.open("POST", "https://cors-anywhere.herokuapp.com/http://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead", true);
+                    // xhr.open("POST", "/api/submit-lead.php", true);
+                    xhr.open("POST", "/api/submit-lead.php", true);
                     xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.setRequestHeader("Authorization", "Bearer 6!jtPoHk4{z31tCk$Mmq{}XZqjw$_an1/5Krv");
                     xhr.onreadystatechange = function() {
@@ -5415,32 +5409,7 @@
                     };
                     // Send the request
                     xhr.send(JSON.stringify(data));
-                    /*
-                                        
-                                            var api_url = '';
-                                            
-                                            api_url = 'https://api.cuchd.in/api/Utility/PostJsonRegistrationFormOnline_LP?Data={"FullName":"' + Name + '","Email":"' + EmailId + '","Mobile":"' + MobileNo + '","ProgramInterested":"' + ProgramCode + '","CityName":"' + CityName + '","DOB":"' + DOB + '","auth_id":"' + "" + '","ProgramId":"' + ProgramCode + '","Source":"' + source + '"}';
-                                            $.ajax({
-                                                url: api_url,
-                                           //     method: 'POST',
-                                                crossOrigin: true,
-                                              //  contentType: 'application/json',
-
-                                                success: function (data) {
-                                                    console.log('data',data)
-                                                    alert('Registration Successful!', 'Thanks for registration', 'success');
-                                                    setTimeout(function () {
-                                                        location.href = 'https://apply.onlinecu.in/thanks.html?p='+ProgramName;
-                                                    }, 2000);
-                                                }, error: function (jqXHR, exception) {
-                                                    $('#btnRegisterNow').prop('disabled', '');
-                                                    if (jqXHR.responseText == 'Already Exist') {
-                                                        alert('ERROR', 'Email Id or Mobile No already registered, please check and try again', 'error');
-                                                    }
-                                                }
-                                            });
-											
-											*/
+                    
                 } else {
                     alert("Email id");
                 }
@@ -6010,7 +5979,7 @@
 
                                 <li><a href="../assets/uploads/New_UGC_Approval_Chandigarh_University_Online_Degree_Programmes-July2025&Onwards.pdf" target="_blank">UGC-DEB Approval</a></li>
 
-                                <li><a href="https://www.onlinecu.in/assets/uploads/Online-Degree-Equivalence.pdf" target="_blank">Online Degree</a></li>
+                                <li><a href="/assets/uploads/Online-Degree-Equivalence.pdf" target="_blank">Online Degree</a></li>
 
 
                                 <li><a href="../learners-stories">Student Stories</a></li>

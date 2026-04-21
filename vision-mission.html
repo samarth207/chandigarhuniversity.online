@@ -1,4 +1,4 @@
-
+﻿
 <!DOCTYPE html>
 
 <html lang="en" class="h-100">
@@ -37,9 +37,9 @@
 
     <meta property="og:type" content="article" />
 
-    <meta property="og:image" content="https://cucet.cuchd.in/new-assets/img/cucet-phase-1-banner.jpg" />
+    <meta property="og:image" content="/assets/images/cu-logo.webp" />
 
-    <meta property="og:image:secure_url" content="https://cucet.cuchd.in/new-assets/img/cucet-phase-1-banner.jpg">
+    <meta property="og:image:secure_url" content="/assets/images/cu-logo.webp">
 
     <meta property="og:image:width" content="320">
 
@@ -57,7 +57,7 @@
 
  and Programs - Chandigarh University" />
 	<meta name="twitter:description" content="UGC Entitled and NAAC A+ Accredited university in India. Online Chandigarh University provides a continually enhanced and integrated learning environment & programmes." />
-	<meta name="twitter:image" content="https://cucet.cuchd.in/new-assets/img/cucet-phase-1-banner.jpg" />
+	<meta name="twitter:image" content="/assets/images/cu-logo.webp" />
 
     
 
@@ -2204,7 +2204,7 @@
 
         var programlistschol = "";
 
-        const urlapi = 'https://uims.cuchd.in/cuservices/api/AppOnline/GetProgramForWebApp?Pcode=ALL';
+        const urlapi = '/api/get-programs.php';
 
         const xhr = new XMLHttpRequest();
 
@@ -2328,7 +2328,7 @@
 
         */
 
-        const url = 'https://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead'; // Replace with your actual API endpoint
+        const url = '/api/submit-lead.php'; // Replace with your actual API endpoint
 
         const authKey = 'Bearer 6!jtPoHk4{z31tCk$Mmq{}XZqjw$_an1/5Krv'; // Replace with your real token
 
@@ -2426,9 +2426,9 @@
 
         };
 
-        //fetch('https://cors-anywhere.herokuapp.com/https://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead'
+        //fetch('/api/submit-lead.php'
 
-        fetch('https://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead/', {
+        fetch('/api/submit-lead.php', {
 
             method: 'POST',
 
@@ -2510,9 +2510,9 @@
 
                     const xhr = new XMLHttpRequest();
 
-                    // xhr.open("POST", "http://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead", true);
+                    // xhr.open("POST", "/api/submit-lead.php", true);
 
-                    xhr.open("POST", "https://cors-anywhere.herokuapp.com/http://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead", true);
+                    xhr.open("POST", "/api/submit-lead.php", true);
 
                     xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -2582,17 +2582,17 @@
 
                                             
 
-                                            api_url = 'https://api.cuchd.in/api/Utility/PostJsonRegistrationFormOnline_LP?Data={"FullName":"' + Name + '","Email":"' + EmailId + '","Mobile":"' + MobileNo + '","ProgramInterested":"' + ProgramCode + '","CityName":"' + CityName + '","DOB":"' + DOB + '","auth_id":"' + "" + '","ProgramId":"' + ProgramCode + '","Source":"' + source + '"}';
+                                            api_url = '/api/submit-lead.php';
 
                                             $.ajax({
 
                                                 url: api_url,
 
-                                           //     method: 'POST',
+                                           method: 'POST',
 
                                                 crossOrigin: true,
 
-                                              //  contentType: 'application/json',
+                                              contentType: 'application/json',
 
 
 
@@ -3203,7 +3203,7 @@
 
                                 <li><a href="assets/uploads/New_UGC_Approval_Chandigarh_University_Online_Degree_Programmes-July2025&Onwards.pdf" target="_blank">UGC-DEB Approval</a></li>
 
-                                <li><a href="https://www.onlinecu.in/assets/uploads/Online-Degree-Equivalence.pdf" target="_blank">Online Degree</a></li>
+                                <li><a href="/assets/uploads/Online-Degree-Equivalence.pdf" target="_blank">Online Degree</a></li>
                                 <li><a href="learners-stories">Student Stories</a></li>
                                 <li><a href="contact-us">Contact Us</a></li>
 

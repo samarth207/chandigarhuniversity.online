@@ -1,4 +1,4 @@
-
+﻿
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -32,8 +32,6 @@
     <!-- Preconnect to API domains for faster loading -->
     <link rel="preconnect" href="https://www.chandigarhuniversity.online">
     <link rel="dns-prefetch" href="https://www.chandigarhuniversity.online">
-    <link rel="preconnect" href="https://cucet.cuchd.in">
-    <link rel="dns-prefetch" href="https://cucet.cuchd.in">
     
     <!-- Preload critical images for mobile -->
     <link rel="preload" as="image" href="../assets/program/bba-mobile-banner.png" fetchpriority="high">
@@ -8250,7 +8248,7 @@ For learners who want to work in environments where technology and business stra
 
         var programlistschol = "";
 
-        const urlapi = 'https://uims.cuchd.in/cuservices/api/AppOnline/GetProgramForWebApp?Pcode=ALL';
+        const urlapi = '/api/get-programs.php';
 
         const xhr = new XMLHttpRequest();
 
@@ -8374,7 +8372,7 @@ For learners who want to work in environments where technology and business stra
 
         */
 
-        const url = 'https://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead'; // Replace with your actual API endpoint
+        const url = '/api/submit-lead.php'; // Replace with your actual API endpoint
 
         const authKey = 'Bearer 6!jtPoHk4{z31tCk$Mmq{}XZqjw$_an1/5Krv'; // Replace with your real token
 
@@ -8472,9 +8470,9 @@ For learners who want to work in environments where technology and business stra
 
         };
 
-        //fetch('https://cors-anywhere.herokuapp.com/https://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead'
+        //fetch('/api/submit-lead.php'
 
-        fetch('https://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead/', {
+        fetch('/api/submit-lead.php', {
 
             method: 'POST',
 
@@ -8556,9 +8554,9 @@ For learners who want to work in environments where technology and business stra
 
                     const xhr = new XMLHttpRequest();
 
-                    // xhr.open("POST", "http://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead", true);
+                    // xhr.open("POST", "/api/submit-lead.php", true);
 
-                    xhr.open("POST", "https://cors-anywhere.herokuapp.com/http://uims.cuchd.in/cuservices/api/AppOnline/WebAppOnlineLead", true);
+                    xhr.open("POST", "/api/submit-lead.php", true);
 
                     xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -8628,17 +8626,17 @@ For learners who want to work in environments where technology and business stra
 
                                             
 
-                                            api_url = 'https://api.cuchd.in/api/Utility/PostJsonRegistrationFormOnline_LP?Data={"FullName":"' + Name + '","Email":"' + EmailId + '","Mobile":"' + MobileNo + '","ProgramInterested":"' + ProgramCode + '","CityName":"' + CityName + '","DOB":"' + DOB + '","auth_id":"' + "" + '","ProgramId":"' + ProgramCode + '","Source":"' + source + '"}';
+                                            api_url = '/api/submit-lead.php';
 
                                             $.ajax({
 
                                                 url: api_url,
 
-                                           //     method: 'POST',
+                                           method: 'POST',
 
                                                 crossOrigin: true,
 
-                                              //  contentType: 'application/json',
+                                              contentType: 'application/json',
 
 
 
@@ -9249,7 +9247,7 @@ For learners who want to work in environments where technology and business stra
 
                                 <li><a href="../assets/uploads/New_UGC_Approval_Chandigarh_University_Online_Degree_Programmes-July2025&Onwards.pdf" target="_blank">UGC-DEB Approval</a></li>
 
-                                <li><a href="https://www.onlinecu.in/assets/uploads/Online-Degree-Equivalence.pdf" target="_blank">Online Degree</a></li>
+                                <li><a href="/assets/uploads/Online-Degree-Equivalence.pdf" target="_blank">Online Degree</a></li>
                                 <li><a href="../learners-stories">Student Stories</a></li>
                                 <li><a href="../contact-us">Contact Us</a></li>
 
