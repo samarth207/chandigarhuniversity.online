@@ -747,3 +747,258 @@
 
 </footer>
 
+<!-- Apply Now Modal — shared across all pages that include site-footer.php -->
+<div id="applyNowModal" style="display:none;position:fixed;z-index:10000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.5);overflow:scroll;">
+    <div style="background:#fff;max-width:600px;margin:60px auto;border-radius:12px;position:relative;box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+        <div class="col-12" style="background-color:#cf1113;padding:18px 0px;color:#fff;border-radius:12px 12px 0px 0px;">
+            <button onclick="document.getElementById('applyNowModal').style.display='none'" style="position:absolute;top:18px;right:15px;background:none;border:none;font-size:24px;cursor:pointer;color:#fff;">&times;</button>
+            <h2 style="font-size:1.5rem;font-weight:600;text-align:center;color:#fff;">Apply Now</h2>
+        </div>
+        <div class="col-12" style="padding:25px;">
+            <form id="customApplyNowForm" autocomplete="off">
+                <div style="margin-bottom:15px;">
+                    <label for="customName" style="font-weight:500;">Full Name</label>
+                    <input type="text" id="customName" name="name" required style="width:100%;padding:10px 12px;margin-top:5px;border-radius:6px;border:1px solid #ccc;">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <label for="customEmail" style="font-weight:500;">Email</label>
+                    <input type="email" id="customEmail" name="email" required style="width:100%;padding:10px 12px;margin-top:5px;border-radius:6px;border:1px solid #ccc;">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <label for="customMobile" style="font-weight:500;">Mobile No.</label>
+                    <div id="footerApplyMobileRow" style="display:flex;gap:8px;align-items:stretch;" class="footer-mobile-india">
+                        <div style="flex:0 0 auto;min-width:90px;">
+                            <select id="footerCountryCode" aria-label="Country code" disabled style="width:100%;height:42px;padding:10px 12px;border-radius:6px;border:1px solid #ccc;background:#f5f5f5;-webkit-appearance:none;appearance:none;">
+                                <option value="91" selected>India</option>
+                            </select>
+                            <input type="hidden" name="countryCode" id="footerCountryCodeHidden" value="91">
+                            <input type="hidden" name="region" id="footerRegionHidden" value="ind">
+                        </div>
+                        <div style="flex:1;min-width:0;">
+                            <input type="tel" id="customMobile" name="mobile" required maxlength="10" placeholder="Mobile" style="width:100%;padding:10px 12px;border-radius:6px;border:1px solid #ccc;" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,10)">
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <label for="customQualification" style="font-weight:500;">Qualification</label>
+                    <select id="customQualification" name="qualification" required style="width:100%;padding:10px 12px;margin-top:5px;border-radius:6px;border:1px solid #ccc;">
+                        <option value="" disabled selected>Select Highest Qualification</option>
+                        <option value="12th/ Higher Secondary">12th/ Higher Secondary</option>
+                        <option value="Pursuing Diploma / Bachelor's">Pursuing Diploma / Bachelor's</option>
+                        <option value="Completed Diploma / Polytechnic">Completed Diploma / Polytechnic</option>
+                        <option value="Graduate (Bachelor's)">Graduate (Bachelor's)</option>
+                        <option value="Postgraduate (Master's)">Postgraduate (Master's)</option>
+                    </select>
+                </div>
+                <div style="margin-bottom:20px;">
+                    <label for="customCourse" style="font-weight:500;">Course</label>
+                    <select id="customCourse" name="course" required style="width:100%;padding:10px 12px;margin-top:5px;border-radius:6px;border:1px solid #ccc;">
+                        <option value="" disabled selected>Select Course</option>
+                        <option value="MBA">MBA</option>
+                        <option value="MA">MA</option>
+                        <option value="MSc">MSc</option>
+                        <option value="MCA">MCA</option>
+                        <option value="BBA">BBA</option>
+                        <option value="BCA">BCA</option>
+                        <option value="BA">BA</option>
+                    </select>
+                </div>
+                <div id="otp-section-modal" style="display:none;margin-bottom:15px;">
+                    <div class="d-flex justify-content-between">
+                        <input type="text" id="otp-input-modal" class="form-control" placeholder="Enter OTP" style="margin-bottom:8px;width:200px;padding:22px 14px;border-radius:6px;border:1px solid #000;">
+                        <button type="button" id="verify-otp-btn-modal" style="margin-bottom:8px;width:auto;margin-left:10px;padding:10px 30px;font-size:16px;font-weight:600;background:#cf1113;color:#fff;border:none;border-radius:6px;cursor:pointer;">Verify OTP</button>
+                    </div>
+                    <span id="otp-status-modal" style="display:block;margin-top:5px;color:green;"></span>
+                </div>
+                <div class="d-flex" style="margin-bottom:15px;">
+                    <input type="checkbox" id="customChecked" checked required>
+                    <label for="customChecked" style="font-size:10px;line-height:1.6;">By Clicking on submit I allow Chandigarh University to send program communication on email / sms / WhatsApp etc.</label>
+                </div>
+                <div style="text-align:center;">
+                    <input type="hidden" name="source" id="modal-source" value="CUOnline">
+                    <input type="hidden" name="media" id="modal-media" value="Direct-CU">
+                    <input type="hidden" name="campaign" id="modal-campaign" value="Direct-CU">
+                    <input type="hidden" name="ltype" id="modal-ltype" value="">
+                    <button type="submit" id="customSubmitBtn" class="apply-btn-primary" style="width:auto;padding:12px 30px;font-size:16px;font-weight:600;color:#fff;border:none;border-radius:6px;cursor:pointer;" disabled>Enquire Now</button>
+                </div>
+            </form>
+        </div>
+        <div id="customApplyNowSuccess" style="display:none;margin-top:15px;color:green;text-align:center;font-weight:500;">Thank you for applying!</div>
+    </div>
+</div>
+<script>
+    document.querySelectorAll('.openApplyModal').forEach(function(btn) {
+        btn.onclick = function() {
+            if (typeof footerSetCountryCodeFromUrl === 'function') footerSetCountryCodeFromUrl();
+            document.getElementById('applyNowModal').style.display = 'block';
+        };
+    });
+    window.addEventListener('click', function(e) {
+        var modal = document.getElementById('applyNowModal');
+        if (modal && modal.style.display === 'block' && !modal.children[0].contains(e.target) && !e.target.classList.contains('openApplyModal')) {
+            modal.style.display = 'none';
+        }
+    });
+</script>
+<script>
+    var FOOTER_BASE_PATH = "/";
+    function footerGetRegionFromUrl() {
+        var path = (window.location.pathname || '').toLowerCase();
+        if (path.indexOf('/us/') !== -1) return 'us';
+        if (path.indexOf('/ae/') !== -1) return 'ae';
+        if (path.indexOf('/sa/') !== -1) return 'sa';
+        if (path.indexOf('/ca/') !== -1) return 'ca';
+        return 'ind';
+    }
+    function footerGetCountryCodeFromUrl() {
+        var path = (window.location.pathname || '').toLowerCase();
+        if (path.indexOf('/us/') !== -1) return '1';
+        if (path.indexOf('/ae/') !== -1) return '971';
+        if (path.indexOf('/sa/') !== -1) return '966';
+        if (path.indexOf('/ca/') !== -1) return '1';
+        return '91';
+    }
+    function footerGetCountryCodeLabel(cc) {
+        var path = (window.location.pathname || '').toLowerCase();
+        if (cc === '1' && path.indexOf('/ca/') !== -1) return '+1 (CAN)';
+        var labels = { '1': '+1 (USA)', '91': 'India', '971': '+971 (UAE)', '966': '+966 (SA)' };
+        return labels[cc] || '+' + cc;
+    }
+    function footerGetMobileMaxLength(cc) {
+        if (cc === '91' || cc === '1') return 10;
+        if (cc === '971' || cc === '966') return 9;
+        return 10;
+    }
+    function footerSetCountryCodeFromUrl() {
+        var cc = footerGetCountryCodeFromUrl();
+        var row = document.getElementById('footerApplyMobileRow');
+        if (row) row.classList.toggle('footer-mobile-india', cc === '91');
+        var sel = document.getElementById('footerCountryCode');
+        var hidCc = document.getElementById('footerCountryCodeHidden');
+        var hidReg = document.getElementById('footerRegionHidden');
+        var mobile = document.getElementById('customMobile');
+        if (!sel || !hidCc || !hidReg || !mobile) return;
+        sel.innerHTML = '<option value="' + cc + '" selected>' + footerGetCountryCodeLabel(cc) + '</option>';
+        hidCc.value = cc;
+        hidReg.value = footerGetRegionFromUrl();
+        mobile.setAttribute('maxlength', String(footerGetMobileMaxLength(cc)));
+        if (cc !== '91') {
+            document.getElementById('customSubmitBtn').disabled = false;
+        }
+    }
+    (function() {
+        footerSetCountryCodeFromUrl();
+        var otpVerifiedModal = false;
+        var mobileSentModal = "";
+        document.getElementById('customMobile').addEventListener('blur', function() {
+            var countryCode = (document.getElementById('footerCountryCodeHidden') && document.getElementById('footerCountryCodeHidden').value) || '91';
+            if (countryCode !== '91') return;
+            var mobile = this.value.replace(/\D/g, '');
+            var name = document.getElementById('customName').value;
+            var email = document.getElementById('customEmail').value;
+            var mobileRegex = /^[6-9][0-9]{9}$/;
+            if (!mobile || !mobileRegex.test(mobile)) return;
+            if (!otpVerifiedModal && mobile !== mobileSentModal) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', FOOTER_BASE_PATH + 'api/send_otp.php', true);
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xhr.onload = function() {
+                    document.getElementById('otp-section-modal').style.display = 'block';
+                    document.getElementById('otp-status-modal').style.color = 'green';
+                    document.getElementById('otp-status-modal').textContent = 'OTP sent to your mobile.';
+                    mobileSentModal = mobile;
+                };
+                xhr.onerror = function() {
+                    document.getElementById('otp-status-modal').style.color = 'red';
+                    document.getElementById('otp-status-modal').textContent = 'Failed to send OTP. Try again.';
+                };
+                xhr.send('mobile_no=' + encodeURIComponent(mobile) + '&name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&media=Direct-CU');
+            }
+        });
+        document.getElementById('verify-otp-btn-modal').addEventListener('click', function() {
+            var otp = document.getElementById('otp-input-modal').value;
+            var mobile = document.getElementById('customMobile').value;
+            if (otp.length >= 4) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', FOOTER_BASE_PATH + 'api/verify_otp.php', true);
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xhr.onload = function() {
+                    if (xhr.responseText.trim() === 'Otp verified successfully') {
+                        otpVerifiedModal = true;
+                        document.getElementById('otp-status-modal').style.color = 'green';
+                        document.getElementById('otp-status-modal').textContent = 'OTP verified! You can now submit the form.';
+                        document.getElementById('customSubmitBtn').disabled = false;
+                        document.getElementById('otp-input-modal').disabled = true;
+                        document.getElementById('verify-otp-btn-modal').disabled = true;
+                    } else {
+                        document.getElementById('otp-status-modal').style.color = 'red';
+                        document.getElementById('otp-status-modal').textContent = 'Invalid OTP. Try again.';
+                    }
+                };
+                xhr.onerror = function() {
+                    document.getElementById('otp-status-modal').style.color = 'red';
+                    document.getElementById('otp-status-modal').textContent = 'Error verifying OTP.';
+                };
+                xhr.send('otp=' + encodeURIComponent(otp) + '&mobile_no=' + encodeURIComponent(mobile));
+            } else {
+                document.getElementById('otp-status-modal').style.color = 'red';
+                document.getElementById('otp-status-modal').textContent = 'Please enter a valid OTP.';
+            }
+        });
+        document.getElementById('customApplyNowForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var countryCode = (document.getElementById('footerCountryCodeHidden') && document.getElementById('footerCountryCodeHidden').value) || '91';
+            var isIndia = (countryCode === '91');
+            var mobile = document.getElementById('customMobile').value.trim().replace(/\D/g, '');
+            var maxLen = typeof footerGetMobileMaxLength === 'function' ? footerGetMobileMaxLength(countryCode) : 10;
+            var mobileRegexIndia = /^[6-9][0-9]{9}$/;
+            var mobileRegexOther = new RegExp('^[0-9]{' + maxLen + '}$');
+            if (isIndia ? !mobileRegexIndia.test(mobile) : !mobileRegexOther.test(mobile)) {
+                document.getElementById('otp-status-modal').style.color = 'red';
+                document.getElementById('otp-status-modal').textContent = isIndia ? 'Please enter a valid 10-digit mobile number (starting with 6, 7, 8, or 9)' : 'Please enter a valid ' + maxLen + '-digit mobile number';
+                return false;
+            }
+            if (isIndia && !otpVerifiedModal) {
+                document.getElementById('otp-status-modal').style.color = 'red';
+                document.getElementById('otp-status-modal').textContent = 'Please verify OTP before submitting.';
+                return false;
+            }
+            var submitBtn = document.getElementById('customSubmitBtn');
+            if (submitBtn.disabled) return false;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.style.opacity = '0.7';
+            submitBtn.style.cursor = 'not-allowed';
+            var formData = new FormData(this);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', FOOTER_BASE_PATH + 'api/erp_api.php', true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var leadId = 0;
+                    try {
+                        var response = JSON.parse(xhr.responseText);
+                        if (response && response.data && response.data.lead_id && !isNaN(response.data.lead_id)) {
+                            leadId = response.data.lead_id;
+                        }
+                    } catch (err) {}
+                    window.location.href = FOOTER_BASE_PATH + 'applythankyou.php?leadid=' + leadId;
+                } else {
+                    alert('There was an error submitting your application. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enquire Now';
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                }
+            };
+            xhr.onerror = function() {
+                alert('There was a network error submitting your application. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enquire Now';
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+            };
+            xhr.send(formData);
+        });
+    })();
+</script>
+
